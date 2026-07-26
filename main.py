@@ -101,10 +101,13 @@ def get_expire_time(page):
 # ==============================================================================
 # 构建通知
 # ==============================================================================
-def build_notification(success, url, server_name, old_expire, new_expire=None, failure_reason=""):
+def build_notification(success, url, server_name, old_expire, new_expire=None, failure_reason="", run_time=""):
     if success:
         lines = [
-            "✅ 续订成功",
+            "🎮 Host2Play 续期通知",
+            f"🕐 运行时间：{run_time}",
+            f"🖥 {server_name}",
+            "📊 续期结果：✅ 续订成功",
             "",
             f"服务器：{server_name}",
             f"到期: {old_expire} -> {new_expire}",
@@ -112,13 +115,17 @@ def build_notification(success, url, server_name, old_expire, new_expire=None, f
         ]
     else:
         lines = [
-            "❌ 续订失败",
+            "🎮 Host2Play 续期通知",
+            f"🕐 运行时间：{run_time}",
+            f"🖥 {server_name}",
+            "📊 续期结果：❌ 续订失败",
             "",
             f"服务器：{server_name}",
             f"URL: {url}",
         ]
         if failure_reason:
             lines.append(f"失败原因: {failure_reason}")
+            
     lines.append("")
     lines.append("Host2Play Auto Renew")
     return "\n".join(lines)
@@ -130,7 +137,6 @@ def capture_page_screenshot(page, file_name):
     except Exception as e:
         log(f"截图失败: {e}", "WARN")
         return None
-
 # ==============================================================================
 # WARP 重连
 # ==============================================================================
