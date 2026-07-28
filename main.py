@@ -21,7 +21,7 @@ except ImportError:
 # ==============================================================================
 RENEW_URLS = [
     "https://host2play.gratis/server/renew?i=9fc09769-3ed5-4159-a73b-d0bcb0f43599",
-    "https://host2play.gratis/server/renew?i=13405112-6f7d-4b2e-bb2f-e7c4179ba7ad",
+    "https://host2play.gratis/server/renew?i=0765de32-cbf8-4ccf-8965-6777d3a90d9f",
   
 ]
 
